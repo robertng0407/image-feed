@@ -2,7 +2,11 @@ import React from 'react';
 import { View, Text, StyleSheet, ColorPropType } from 'react-native';
 import PropTypes from 'prop-types';
 
-export default function Avatar({ initials, size, backgroundColor }) {
+export default function Avatar({ 
+    initials, 
+    size, 
+    backgroundColor 
+}) {
     const style = {
         width: size,
         height: size,
