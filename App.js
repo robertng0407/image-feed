@@ -1,9 +1,9 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View, Platform } from 'react-native';
 
 import { Constants } from 'expo';
 
-import CardList from './src/components/CardList';
+import Feed from './src/screens/Feed';
 
 const items = [
   { id: 0, author: 'Rob' },
@@ -14,17 +14,28 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <CardList items={items} />
+        <Feed style={styles.feed} />
       </View>
     );
   }
 }
 
+const platformVersion =
+  Platform.OS === 'ios'
+    ? parseInt(Platform.Version, 10)
+    : Platform.version;
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    justifyContent: 'flex-start',
-    marginTop: Constants.statusBarHeight
+    justifyContent: 'flex-start'
   },
+  feed: {
+    flex: 1,
+    marginTop:
+      Platform.OS === 'android' || platformVersion < 11
+        ? Constants.statusBarHeight
+        : 0
+  }
 });
