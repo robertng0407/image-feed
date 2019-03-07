@@ -4,6 +4,7 @@ import { StyleSheet, View, Platform } from 'react-native';
 import { Constants } from 'expo';
 
 import Feed from './src/screens/Feed';
+import CommentInput from './src/components/CommentInput';
 
 const items = [
   { id: 0, author: 'Rob' },
@@ -14,7 +15,8 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Feed style={styles.feed} />
+        {/* <Feed style={styles.feed} /> */}
+        <CommentInput placeholder="comment"/>
       </View>
     );
   }
